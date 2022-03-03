@@ -1,13 +1,13 @@
 import { Get } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
-import { wait } from '@/common/helper/utils.helper';
+import { randomInt } from '@Helper/utils.helper';
+// import { randomInt } from '@/common/helper/utils.helper'; // this works too
+// import { randomInt } from 'src/common/helper/utils.helper'; // original
 
 @Controller('player')
 export class PlayerController {
   @Get()
-  public async getPlayer(): Promise<any> {
-    await wait(1000);
-
-    return {};
+  public async getPlayer(): Promise<number> {
+    return randomInt(0, 100);
   }
 }
